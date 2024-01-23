@@ -18,7 +18,7 @@
 
 .meal-container {
   display: flex;
-  gap: 8px;
+  gap: 5px;
   background-color: #ecf0f1;
   padding: 10px;
   border-bottom-left-radius: 8px;
@@ -36,15 +36,15 @@
 }
 
 .meal-card .icon {
-  width: 45px; /* Set the size of your icon */
-  height: 45px; /* Set the size of your icon */
+  width: 35px; /* Set the size of your icon */
+  height: 35px; /* Set the size of your icon */
   margin-right: 10px; /* Adds some space between the icon and the editable div */
 }
 
 .cart-icon {
   width: 25px; /* Set the size of your icon */
   height: 25px; /* Set the size of your icon */
-  margin-left: 10px; /* Adds some space between the icon and the editable div */
+  margin-top: 8px; /* Adds some space between the icon and the editable div */
   cursor: pointer;
 }
 
@@ -55,4 +55,10 @@
   flex-grow: 1; /* Allows the editable div to fill the space not taken by the icon */
   min-height: 100%; /* Gives some minimum height to the div */
   min-width: 30%;
+}
+
+.cart {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px;
 }

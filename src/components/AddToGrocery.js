@@ -5,12 +5,11 @@ import EditableListItem from "./EditableListItem";
 import { DataContext } from "./DataContext";
 import Item from "../data/Item";
 
-const AddtoGroceryModal = (toggleModal) => {
+const AddtoGroceryModal = ({ toggleModal }) => {
   const [items, setItems] = useState([new Item("")]);
-  const {groceryMap, updateGroceryMap} = useContext(DataContext);
+  const { groceryMap, updateGroceryMap } = useContext(DataContext);
 
   const updateItem = (updatedItem) => {
-
     const updatedItems = items
       .map((item) => (item.id === updatedItem.id ? updatedItem : item))
       .filter((item) => !isEmptyItem(item));
@@ -43,6 +42,7 @@ const AddtoGroceryModal = (toggleModal) => {
           key={item.id}
           item={item}
           index={index}
+          inFocus={item.itemName.trim() === ""}
           onUpdate={updateItem}
         />
       )
@@ -52,7 +52,10 @@ const AddtoGroceryModal = (toggleModal) => {
   return (
     <div className="modal-overlay">
       <div className="add-to-grocery modal">
-        <header className="header">Add to Grocery</header>
+        <div className="header">
+          <div className="header-text">Add to Grocery</div>
+          <div className="close-button" onClick={toggleModal}>X</div>
+        </div>
         <div className="grocery-list-container modal-content">
           <div className="list-title">List - Grocery</div>
           <ul className="items">{listItems}</ul>

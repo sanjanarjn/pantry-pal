@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AddToGrocery.css";
 import Item from "../data/Item.js";
 
-const EditableListItem = ({ item, onUpdate }) => {
+const EditableListItem = ({ item, inFocus, onUpdate }) => {
   const [updatedItem, setItem] = useState(item);
 
   const handleTextChange = (event) => {
@@ -21,7 +21,7 @@ const EditableListItem = ({ item, onUpdate }) => {
   };
 
   const handleBlur = () => {
-    onUpdate(updatedItem);
+    //onUpdate(updatedItem);
   };
 
   return (
@@ -33,6 +33,7 @@ const EditableListItem = ({ item, onUpdate }) => {
         onChange={handleTextChange}
         onKeyDown={handleKeyDown}
         onBlur={handleBlur}
+        autoFocus={inFocus}
       />
     </li>
   );

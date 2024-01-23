@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function Meal({mealData, onMealChange, mealImage}) {
+export default function Meal({mealData, mealImage, onMealChange}) {
   const [meal, setMeal] = useState(mealData.mealName);
   const placeholder = "Plan for your "+mealData.mealTime+"...";
   const changeMeal = (event) => {
@@ -10,10 +10,9 @@ export default function Meal({mealData, onMealChange, mealImage}) {
 
   return (
     <div className="meal-card">
-      <img src={mealImage} alt="Icon" class="icon" />
+      <img src={mealImage} alt="Icon" className="icon" />
       <textarea
         type="text"
-        contentEditable={true}
         className="meal-description"
         placeholder={placeholder}
         onBlur={(e) =>

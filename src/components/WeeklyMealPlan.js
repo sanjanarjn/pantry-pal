@@ -16,11 +16,13 @@ function WeeklyMealPlan() {
     "Saturday",
     "Sunday",
   ];
-  
-  const [updatedWeeklyMealPlan, setWeeklyMealPlan] = useState(WeeklyMealPlanData.getEmptyWeeklyMealPlan());
+
+  const [updatedWeeklyMealPlan, setWeeklyMealPlan] = useState(
+    WeeklyMealPlanData.getEmptyWeeklyMealPlan()
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  
+
   const showAddToGroceryModal = () => {
     setShowModal(!showModal);
   };
@@ -89,12 +91,11 @@ function WeeklyMealPlan() {
           />
         );
       }
-      console.log(dailyMealPlans);
     }
 
     return (
       <div>
-        {showModal && <AddtoGroceryModal toggleModal={showModal}/>}
+        {showModal && <AddtoGroceryModal toggleModal={showAddToGroceryModal} />}
         {dailyMealPlans}
       </div>
     );

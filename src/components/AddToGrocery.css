@@ -16,6 +16,20 @@
   align-items: center;
 }
 
+.header-text {
+  width:94%;
+}
+
+.close-button {
+  background-color: #fefefe;
+  color: #f06464;
+  font-weight: 400;
+  padding: 2px 4px 2px 4px;
+  border-radius: 3px;
+  box-shadow: #fefefe;
+  cursor: pointer;
+}
+
 .grocery-list-container {
   border: 1px solid #ccc;
   border-radius: 5px;
