@@ -1,0 +1,58 @@
+/* MealPlan.css */
+.day-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.day-header {
+  background-color: #f06464;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.2em;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.meal-container {
+  display: flex;
+  gap: 8px;
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.meal-card {
+  display: flex; /* Aligns the icon and the editable div inline */
+  
+  align-items: center; /* Centers them vertically */
+  border: 1px solid #fff; /* Border as shown in your picture */
+  border-radius: 8px; /* Rounded corners as in your picture */
+  padding: 5px; /* Some padding inside the container */
+  background-color: #fff;
+}
+
+.meal-card .icon {
+  width: 45px; /* Set the size of your icon */
+  height: 45px; /* Set the size of your icon */
+  margin-right: 10px; /* Adds some space between the icon and the editable div */
+}
+
+.cart-icon {
+  width: 25px; /* Set the size of your icon */
+  height: 25px; /* Set the size of your icon */
+  margin-left: 10px; /* Adds some space between the icon and the editable div */
+  cursor: pointer;
+}
+
+.meal-card textarea {
+  border: 1px dashed #f0646477; /* Removes the default border */
+  border-radius: 5px;
+  outline: none; /* Removes the focus outline to clean up the appearance */
+  flex-grow: 1; /* Allows the editable div to fill the space not taken by the icon */
+  min-height: 100%; /* Gives some minimum height to the div */
+  min-width: 30%;
+}

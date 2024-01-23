@@ -1,0 +1,159 @@
+.add-to-grocery {
+  max-width: 300px;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  background-color: #f06464;
+  color: white;
+  padding: 10px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.grocery-list-container {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+  position: relative; /* Establish a containing block for absolute positioning */
+  /* Give enough padding to accommodate the sticky div */
+  /* Add other styles for scrolling, such as height and overflow properties if needed */
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.list-title {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.add-item {
+  background-color: white;
+  color: #f06464;
+  border: 2px solid #f06464;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+}
+
+.add-item:focus {
+  outline: none;
+}
+
+.sticky {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  /* Add other styles for your sticky div */
+  background: #ffffff; /* Just for visibility */
+  padding: 5px;
+  width: 100%;
+}
+
+/* Adjust the spacing and alignment */
+label {
+  margin-left: 5px;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Add responsiveness if needed */
+@media (max-width: 768px) {
+  .grocery-list {
+    width: 95%;
+  }
+}
+
+.sticky > label {
+  font-size: 15px;
+}
+
+.item-input {
+  padding: 0px;
+  width: calc(100% - 20px); /* 100% of the container width minus the padding */
+  padding: 8px 10px; /* Padding inside the input */
+  border: 1px solid #ffffff; /* Border of the input */
+  border-radius: 4px; /* Rounded corners for the input */
+  font-size: 16px; /* Text size inside the input */
+  color: #333; /* Text color */
+  background-color: #fff; /* Background color of the input */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for the input */
+
+  /* Style for the placeholder text */
+  ::placeholder {
+    color: #888;
+  }
+
+  /* Style for focus state */
+  :focus {
+    outline: none;
+    border-color: #ffffff;
+    /*box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(0, 123, 255, 0.25);*/
+  }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(156 155 155 / 72%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+  z-index: 1;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 300px; /* Same as the max-width of GroceryList component */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* You can add more styles here to suit your needs */
