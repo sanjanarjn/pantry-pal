@@ -1,13 +1,15 @@
 import React, { useState, useContext } from "react";
-import "./AddToGrocery.css"; // Make sure to create a CSS file with this name
+import "./AddToGrocery.css"; 
 
 import plusImage from "../images/plus.png";
 import EditableListItem from "./EditableListItem";
 import List from "../data/List";
 import { DataContext } from "./DataContext";
 
-const SelectGroceryList = ({ toggleGroceryListModal,  toggleAddGroceryItemModal}) => {
-
+const SelectGroceryList = ({
+  toggleGroceryListModal,
+  toggleAddGroceryItemModal,
+}) => {
   const [emptyList, setEmptyList] = useState(new List(""));
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -15,7 +17,11 @@ const SelectGroceryList = ({ toggleGroceryListModal,  toggleAddGroceryItemModal}
   const [groceryLists, setGroceryLists] = useState([...grocery.groceryLists]);
 
   const addNewGroceryList = (newList) => {
-
+    if (newList.itemName == undefined || newList.itemName.trim().length == 0) {
+      setErrorMessage("Please enter a name for the list!");
+      setEmptyList(new List(""));
+      return;
+    }
     if (grocery.isListPresent(newList.itemName)) {
       setErrorMessage("List with same name exists!");
       setEmptyList(new List(newList.itemName));
@@ -24,14 +30,17 @@ const SelectGroceryList = ({ toggleGroceryListModal,  toggleAddGroceryItemModal}
       setEmptyList(new List(""));
       addGroceryList(newList);
       setGroceryLists([newList, ...groceryLists]);
-      
     }
   };
 
   const listItems = [];
   groceryLists.map((list) =>
     listItems.push(
-      <li className="list-item" key={list.id} onClick={() => toggleAddGroceryItemModal(list.itemName)}>
+      <li
+        className="list-item"
+        key={list.id}
+        onClick={() => toggleAddGroceryItemModal(list.itemName)}
+      >
         {list.itemName}
       </li>
     )

@@ -15,7 +15,7 @@ const EditableListItem = ({ item, inFocus, onUpdate }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      if (!isEmptyItem(updatedItem)) onUpdate(updatedItem);
+      onUpdate(updatedItem);
     }
   };
 
