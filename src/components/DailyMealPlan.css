@@ -49,9 +49,7 @@
 }
 
 .meal-card textarea {
-  border: 1px dashed #f0646477; /* Removes the default border */
-  border-radius: 5px;
-  outline: none; /* Removes the focus outline to clean up the appearance */
+  border: 0px;
   flex-grow: 1; /* Allows the editable div to fill the space not taken by the icon */
   min-height: 100%; /* Gives some minimum height to the div */
   min-width: 30%;

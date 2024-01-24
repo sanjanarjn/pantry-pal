@@ -10,11 +10,21 @@ import dinnerImage from "../images/dinner.png";
 
 import groceryCartImage from "../images/add-to-cart-2.png";
 
+import {useNavigate } from 'react-router-dom';
+
+
 const DailyMealPlan = ({ dailyMealPlan, onMealChange, onAddGrocery }) => {
+
+  let navigate = useNavigate();
+  const goToGroceryList = () => {
+    navigate('/grocery-lists');
+  };
+
   const day = dailyMealPlan.day;
   const breakfast = new MealData(day, "breakfast", dailyMealPlan.breakfast);
   const lunch = new MealData(day, "lunch", dailyMealPlan.lunch);
   const dinner = new MealData(day, "dinner", dailyMealPlan.dinner);
+
 
   return (
     <div className="day-container">

@@ -10,18 +10,21 @@ const EditableListItem = ({ item, inFocus, onUpdate }) => {
 
     const changedItem = new Item(updatedValue);
     changedItem.id = updatedItem.id;
-    changedItem.checked = updatedItem.checked;
     setItem(changedItem);
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      onUpdate(updatedItem);
+      if (!isEmptyItem(updatedItem)) onUpdate(updatedItem);
     }
   };
 
   const handleBlur = () => {
-    //onUpdate(updatedItem);
+    if (!isEmptyItem(updatedItem)) onUpdate(updatedItem);
+  };
+
+  const isEmptyItem = (item) => {
+    return item && item.itemName != null && item.itemName.trim() === "";
   };
 
   return (

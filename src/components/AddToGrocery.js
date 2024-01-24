@@ -1,19 +1,28 @@
 import React, { useState, useContext } from "react";
 import "./AddToGrocery.css"; // Make sure to create a CSS file with this name
 
+import plusImage from "../images/plus.png";
 import EditableListItem from "./EditableListItem";
 import { DataContext } from "./DataContext";
 import Item from "../data/Item";
 
-const AddtoGroceryModal = ({ toggleModal }) => {
-  const [items, setItems] = useState([new Item("")]);
-  const { groceryMap, updateGroceryMap } = useContext(DataContext);
+const AddtoGroceryModal = ({ groceryListName, toggleAddToGroceryModal }) => {
+
+  const { grocery, addItemsToGroceryList } = useContext(DataContext);
+
+  const getItemsInGroceryList = ()  => {
+    const itemsInList = grocery.groceryMap.get(groceryListName);
+    return [new Item(""), ...itemsInList];
+  }
+  const [items, setItems] = useState(getItemsInGroceryList());
+  
 
   const updateItem = (updatedItem) => {
     const updatedItems = items
       .map((item) => (item.id === updatedItem.id ? updatedItem : item))
       .filter((item) => !isEmptyItem(item));
-    updateGroceryMap("Grocery", updatedItems);
+    
+    addItemsToGroceryList(groceryListName, updatedItems);
 
     if (!isEmptyItem(updatedItems[0])) {
       setItems([new Item(""), ...updatedItems]);
@@ -54,21 +63,32 @@ const AddtoGroceryModal = ({ toggleModal }) => {
       <div className="add-to-grocery modal">
         <div className="header">
           <div className="header-text">Add to Grocery</div>
-          <div className="close-button" onClick={toggleModal}>X</div>
+          <div className="close-button" onClick={toggleAddToGroceryModal}>
+            X
+          </div>
         </div>
-        <div className="grocery-list-container modal-content">
-          <div className="list-title">List - Grocery</div>
-          <ul className="items">{listItems}</ul>
+        <div className="add-to-grocery modal-content">
+          <section>
+            <div className="grocery-list-header">
+              <h4>{groceryListName}</h4>
+              
+            </div>
+            <ul className="items">{listItems}</ul>
+          </section>
           <div className="sticky">
-            <button className="add-item" onClick={addSpaceForNewItem}>
-              +
-            </button>
-            <label>Add new item</label>
+            <img
+              src={plusImage}
+              className="plus-icon"
+              onClick={addSpaceForNewItem}
+            />
+            <h5>Add new item</h5>
           </div>
         </div>
       </div>
     </div>
   );
+
+  
 };
 
 export default AddtoGroceryModal;

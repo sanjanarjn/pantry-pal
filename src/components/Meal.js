@@ -2,9 +2,11 @@ import { useState } from "react";
 
 
 export default function Meal({mealData, mealImage, onMealChange}) {
-  const [meal, setMeal] = useState(mealData.mealName);
+
+  const [updatedMeal, setMeal] = useState(mealData.mealName);
   const placeholder = "Plan for your "+mealData.mealTime+"...";
   const changeMeal = (event) => {
+    console.log("Meal change")
     setMeal(event.target.value);
   };
 
@@ -18,7 +20,7 @@ export default function Meal({mealData, mealImage, onMealChange}) {
         onBlur={(e) =>
           onMealChange(mealData.day, mealData.mealTime, e.target.value)
         }
-        value={meal}
+        value={updatedMeal}
         onChange={changeMeal}
       ></textarea>
     </div>

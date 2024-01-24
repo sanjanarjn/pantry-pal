@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import DailyMealPlan from "./DailyMealPlan";
 import AddtoGroceryModal from "./AddToGrocery";
 import WeeklyMealPlanData from "../data/WeeklyMealPlanData";
-import { DataContext } from "./DataContext";
+import SelectGroceryList from "./SelectGroceryList";
 
 function WeeklyMealPlan() {
   const DaysOfWeek = [
@@ -21,10 +21,20 @@ function WeeklyMealPlan() {
     WeeklyMealPlanData.getEmptyWeeklyMealPlan()
   );
   const [isLoading, setIsLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [selectedGroceryList, setSelectedGroceryList] = useState("");
 
-  const showAddToGroceryModal = () => {
-    setShowModal(!showModal);
+  const [showGroceryListsModal, setShowGroceryListsModal] = useState(false);
+  const toggleShowGroceryListsModal = () => {
+    setShowGroceryListsModal(!showGroceryListsModal);
+  };
+
+  const [showAddGroceryItemModal, setShowAddGroceryItemModal] = useState(false);
+  const toggleShowAddGroceryItemModal = (groceryList) => {
+    if(showGroceryListsModal)
+      toggleShowGroceryListsModal();
+
+    setSelectedGroceryList(groceryList);
+    setShowAddGroceryItemModal(!showAddGroceryItemModal);
   };
 
   const handleMealChange = (day, mealTime, mealDetails) => {
@@ -53,6 +63,7 @@ function WeeklyMealPlan() {
   };
 
   useEffect(() => {
+    console.log("Loading meal plans from chrome storage");
     const chromeValid = typeof chrome !== "undefined" && chrome.storage;
     if (chromeValid) {
       // Fetch data from Chrome storage
@@ -87,7 +98,7 @@ function WeeklyMealPlan() {
             key={day}
             dailyMealPlan={mealPlanForDay}
             onMealChange={handleMealChange}
-            onAddGrocery={showAddToGroceryModal}
+            onAddGrocery={toggleShowGroceryListsModal}
           />
         );
       }
@@ -95,7 +106,8 @@ function WeeklyMealPlan() {
 
     return (
       <div>
-        {showModal && <AddtoGroceryModal toggleModal={showAddToGroceryModal} />}
+        {showGroceryListsModal && <SelectGroceryList toggleGroceryListModal={toggleShowGroceryListsModal} toggleAddGroceryItemModal={toggleShowAddGroceryItemModal}/>}
+        {showAddGroceryItemModal && <AddtoGroceryModal  groceryListName={selectedGroceryList} toggleAddToGroceryModal={toggleShowAddGroceryItemModal}/>}
         {dailyMealPlans}
       </div>
     );
