@@ -1,6 +1,7 @@
 import "./App.css";
 import { DataProvider } from "./components/DataContext";
 import GroceryList from "./components/GroceryList";
+import HomePage from "./components/HomePage";
 import WeeklyMealPlan from "./components/WeeklyMealPlan";
 import {
   Routes,
@@ -14,7 +15,8 @@ function App() {
       <HashRouter>
         <div className="App">
           <Routes>
-            <Route path="/" element={<WeeklyMealPlan />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/meal-plans" element={<WeeklyMealPlan />} />
             <Route path="/grocery-lists" element={<GroceryList />} />
           </Routes>
         </div>
