@@ -1,20 +1,23 @@
 import React, { useState, useContext } from "react";
-import "./AddToGrocery.css"; 
+import "./AddToGrocery.css";
 
 import plusImage from "../images/plus.png";
+import editImage from "../images/edit.png";
+
 import EditableListItem from "./EditableListItem";
 import List from "../data/List";
 import { DataContext } from "./DataContext";
+import DeletableListItem from "./DeletableListItem";
 
 const SelectGroceryList = ({
   toggleGroceryListModal,
   toggleAddGroceryItemModal,
 }) => {
+  
   const [emptyList, setEmptyList] = useState(new List(""));
   const [errorMessage, setErrorMessage] = useState("");
 
   const { grocery, addGroceryList } = useContext(DataContext);
-  const [groceryLists, setGroceryLists] = useState([...grocery.groceryLists]);
 
   const addNewGroceryList = (newList) => {
     if (newList.itemName == undefined || newList.itemName.trim().length == 0) {
@@ -29,20 +32,18 @@ const SelectGroceryList = ({
       setErrorMessage("");
       setEmptyList(new List(""));
       addGroceryList(newList);
-      setGroceryLists([newList, ...groceryLists]);
     }
   };
 
   const listItems = [];
-  groceryLists.map((list) =>
+  grocery.groceryLists.map((list) =>
     listItems.push(
-      <li
-        className="list-item"
+      <DeletableListItem
         key={list.id}
-        onClick={() => toggleAddGroceryItemModal(list.itemName)}
-      >
-        {list.itemName}
-      </li>
+        item={list}
+        actionImage={editImage}
+        action={toggleAddGroceryItemModal}
+      />
     )
   );
 
@@ -59,7 +60,6 @@ const SelectGroceryList = ({
         <div className="add-to-grocery modal-content">
           <ul className="items">{listItems}</ul>
           <div className="sticky">
-            <img src={plusImage} className="plus-icon" />
             <ul className="items">
               <EditableListItem
                 key={emptyList.id}

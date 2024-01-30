@@ -1,6 +1,6 @@
 import "./App.css";
 import { DataProvider } from "./components/DataContext";
-import GroceryList from "./components/GroceryList";
+import GroceryLists from "./components/GroceryLists";
 import HomePage from "./components/HomePage";
 import WeeklyMealPlan from "./components/WeeklyMealPlan";
 import {
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/meal-plans" element={<WeeklyMealPlan />} />
-            <Route path="/grocery-lists" element={<GroceryList />} />
+            <Route path="/grocery-lists" element={<GroceryLists />} />
           </Routes>
         </div>
       </HashRouter>

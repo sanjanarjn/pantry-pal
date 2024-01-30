@@ -5,6 +5,7 @@ import DailyMealPlan from "./DailyMealPlan";
 import AddtoGroceryModal from "./AddToGrocery";
 import WeeklyMealPlanData from "../data/WeeklyMealPlanData";
 import SelectGroceryList from "./SelectGroceryList";
+import AddItemsToGroceryList from "./AddItemsToGrocery";
 
 function WeeklyMealPlan() {
   const DaysOfWeek = [
@@ -107,7 +108,7 @@ function WeeklyMealPlan() {
     return (
       <div>
         {showGroceryListsModal && <SelectGroceryList toggleGroceryListModal={toggleShowGroceryListsModal} toggleAddGroceryItemModal={toggleShowAddGroceryItemModal}/>}
-        {showAddGroceryItemModal && <AddtoGroceryModal  groceryListName={selectedGroceryList} toggleAddToGroceryModal={toggleShowAddGroceryItemModal}/>}
+        {showAddGroceryItemModal && <AddItemsToGroceryList  groceryListName={selectedGroceryList} toggleAddToGroceryModal={toggleShowAddGroceryItemModal}/>}
         {dailyMealPlans}
       </div>
     );

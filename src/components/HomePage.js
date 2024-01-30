@@ -23,15 +23,6 @@ export default function HomePage() {
           <h4>Grocery lists</h4>
         </div>
       </div>
-      <div className="logo">
-        <div className="logo-icon">
-          <img src={groceryCartImage} />
-        </div>
-
-        <div className="logo-name">
-          <h2>PantryPal</h2>
-        </div>
-      </div>
     </>
   );
 }
