@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./AddToGrocery.css";
 
-import plusImage from "../images/plus.png";
 import editImage from "../images/edit.png";
 
 import EditableListItem from "./EditableListItem";
@@ -63,6 +62,7 @@ const SelectGroceryList = ({
             <ul className="items">
               <EditableListItem
                 key={emptyList.id}
+                placeholder="Add new list"
                 item={emptyList}
                 inFocus={true}
                 onUpdate={addNewGroceryList}

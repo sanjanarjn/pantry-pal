@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AddToGrocery.css";
 import Item from "../data/Item.js";
 
-const EditableListItem = ({ item, inFocus, onUpdate }) => {
+const EditableListItem = ({ item, placeholder, inFocus, onUpdate }) => {
   const [updatedItem, setItem] = useState(item);
 
   const handleTextChange = (event) => {
@@ -32,6 +32,7 @@ const EditableListItem = ({ item, inFocus, onUpdate }) => {
       <input
         type="text"
         className="item-input"
+        placeholder={placeholder}
         value={updatedItem.itemName}
         onChange={handleTextChange}
         onKeyDown={handleKeyDown}

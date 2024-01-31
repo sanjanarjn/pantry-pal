@@ -186,4 +186,20 @@ input[type="checkbox"] {
 grocery-list-header h4 {
   width: 90%;
 }
+
+.confirm-delete-buttons {
+  display: flex;
+}
+
+.confirm-delete-button {
+  width: 50%;
+  background-color: #f06464;
+  color: #fff;
+}
 /* You can add more styles here to suit your needs */
+
+
+.back-button {
+  height: 25px;
+  width: 25px;
+}

@@ -7,10 +7,12 @@ import EditableListItem from "./EditableListItem";
 import { DataContext } from "./DataContext";
 import Item from "../data/Item";
 import DeletableListItem from "./DeletableListItem";
+import backButton from "../images/back.png";
 
 const AddItemsToGroceryList = ({
   groceryListName,
   toggleAddToGroceryModal,
+  goBacktoGroceryListModal
 }) => {
   console.log(groceryListName);
   const { grocery, addItemsToGroceryList } = useContext(DataContext);
@@ -47,6 +49,8 @@ const AddItemsToGroceryList = ({
     <div className="modal-overlay">
       <div className="add-to-grocery modal">
         <div className="header">
+        <img src={backButton} className="back-button" onClick={goBacktoGroceryListModal}/>
+
           <div className="header-text">Add items to list - {groceryListName.itemName}</div>
           <div className="close-button" onClick={toggleAddToGroceryModal}>
             X
@@ -64,6 +68,7 @@ const AddItemsToGroceryList = ({
             <ul className="items">
               <EditableListItem
                 key={emptyItem.id}
+                placeholder="Add new item"
                 item={emptyItem}
                 inFocus={true}
                 onUpdate={updateGroceryList}

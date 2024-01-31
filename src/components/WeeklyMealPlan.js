@@ -31,11 +31,16 @@ function WeeklyMealPlan() {
 
   const [showAddGroceryItemModal, setShowAddGroceryItemModal] = useState(false);
   const toggleShowAddGroceryItemModal = (groceryList) => {
-    if(showGroceryListsModal)
-      toggleShowGroceryListsModal();
+    if (showGroceryListsModal) toggleShowGroceryListsModal();
 
     setSelectedGroceryList(groceryList);
     setShowAddGroceryItemModal(!showAddGroceryItemModal);
+  };
+
+  const goBacktoGroceryListModal = () => {
+    if (showAddGroceryItemModal) toggleShowAddGroceryItemModal();
+
+    setShowGroceryListsModal(!showGroceryListsModal);
   };
 
   const handleMealChange = (day, mealTime, mealDetails) => {
@@ -107,8 +112,19 @@ function WeeklyMealPlan() {
 
     return (
       <div>
-        {showGroceryListsModal && <SelectGroceryList toggleGroceryListModal={toggleShowGroceryListsModal} toggleAddGroceryItemModal={toggleShowAddGroceryItemModal}/>}
-        {showAddGroceryItemModal && <AddItemsToGroceryList  groceryListName={selectedGroceryList} toggleAddToGroceryModal={toggleShowAddGroceryItemModal}/>}
+        {showGroceryListsModal && (
+          <SelectGroceryList
+            toggleGroceryListModal={toggleShowGroceryListsModal}
+            toggleAddGroceryItemModal={toggleShowAddGroceryItemModal}
+          />
+        )}
+        {showAddGroceryItemModal && (
+          <AddItemsToGroceryList
+            groceryListName={selectedGroceryList}
+            toggleAddToGroceryModal={toggleShowAddGroceryItemModal}
+            goBacktoGroceryListModal={goBacktoGroceryListModal}
+          />
+        )}
         {dailyMealPlans}
       </div>
     );
