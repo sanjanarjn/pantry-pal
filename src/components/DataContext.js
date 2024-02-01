@@ -7,6 +7,7 @@ export const DataContext = createContext({
   addItemsToGroceryList: () => {},
   addGroceryList: () => {},
   deleteGroceryList: () => {},
+  getGroceryList: () => {}
 });
 
 export const DataProvider = ({ children }) => {
@@ -77,10 +78,15 @@ export const DataProvider = ({ children }) => {
         (list) => list.itemName !== listName
       );
 
+      saveGroceryItemsToLocalStorage(updatedGrocery.groceryMap);
       saveGroceryListsToLocalStorage(updatedGrocery.groceryLists);
       return updatedGrocery;
     });
   };
+
+  const getGroceryList = (listName) => {
+    return grocery.groceryLists.find((list) => list.itemName === listName);
+  }
 
   const saveGroceryListsToLocalStorage = (groceryLists) => {
     const chromeValid = typeof chrome !== "undefined" && chrome.storage;
@@ -112,6 +118,7 @@ export const DataProvider = ({ children }) => {
         addGroceryList: addGroceryList,
         addItemsToGroceryList: addItemsToGroceryList,
         deleteGroceryList: deleteGroceryList,
+        getGroceryList: getGroceryList
       }}
     >
       {children}

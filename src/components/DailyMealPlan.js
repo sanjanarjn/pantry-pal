@@ -15,11 +15,6 @@ import {useNavigate } from 'react-router-dom';
 
 const DailyMealPlan = ({ dailyMealPlan, onMealChange, onAddGrocery }) => {
 
-  let navigate = useNavigate();
-  const goToGroceryList = () => {
-    navigate('/grocery-lists');
-  };
-
   const day = dailyMealPlan.day;
   const breakfast = new MealData(day, "breakfast", dailyMealPlan.breakfast);
   const lunch = new MealData(day, "lunch", dailyMealPlan.lunch);

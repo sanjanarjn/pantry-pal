@@ -1,13 +1,16 @@
 /* global chrome */
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import DailyMealPlan from "./DailyMealPlan";
-import AddtoGroceryModal from "./AddToGrocery";
 import WeeklyMealPlanData from "../data/WeeklyMealPlanData";
 import SelectGroceryList from "./SelectGroceryList";
 import AddItemsToGroceryList from "./AddItemsToGrocery";
+import AppHeader from "./AppHeader";
+
+
 
 function WeeklyMealPlan() {
+
   const DaysOfWeek = [
     "Monday",
     "Tuesday",
@@ -21,7 +24,8 @@ function WeeklyMealPlan() {
   const [updatedWeeklyMealPlan, setWeeklyMealPlan] = useState(
     WeeklyMealPlanData.getEmptyWeeklyMealPlan()
   );
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  
   const [selectedGroceryList, setSelectedGroceryList] = useState("");
 
   const [showGroceryListsModal, setShowGroceryListsModal] = useState(false);
@@ -111,7 +115,8 @@ function WeeklyMealPlan() {
     }
 
     return (
-      <div>
+      <>
+       <AppHeader/>
         {showGroceryListsModal && (
           <SelectGroceryList
             toggleGroceryListModal={toggleShowGroceryListsModal}
@@ -126,7 +131,7 @@ function WeeklyMealPlan() {
           />
         )}
         {dailyMealPlans}
-      </div>
+      </>
     );
   }
 }

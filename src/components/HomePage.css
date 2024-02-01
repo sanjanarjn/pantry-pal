@@ -3,8 +3,10 @@
     align-items: center;
     justify-items: center;
     justify-self: center;
-    padding: 20% 20% 5% 20%;
+    padding: 5% 20% 5% 20%;
     gap: 15px;
+    box-shadow: 0px 0px 4px 0px #f06464;
+    border-radius: 10px;
 }
 
 .home-page-tile {
@@ -14,39 +16,9 @@
     width: 50%;
     box-shadow: 0px 0px 4px 0px #f06464;
     cursor: pointer;
-
 }
 
 .home-page-tile img{
     height:100px;
     width: 100px;
-}
-
-
-.logo {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    justify-self: center;
-    padding: 3% 25% 5% 35%;
-}
-
-.logo img {
-    height:100px;
-    width: 100px;
-}
-
-
-.logo-icon {
-    
-    width: 50%;
-    cursor: pointer;
-
-}
-
-.logo-name {
-    color:#f06464;
-    
-    cursor: pointer;
-
 }

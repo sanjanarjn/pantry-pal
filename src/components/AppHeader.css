@@ -1,0 +1,36 @@
+.logo-panel {
+    display: flex;
+    height: 100px;
+    background-color: white;
+    border-radius: 8px;
+    align-items: center;
+    padding: auto;
+    box-shadow: 0px 0px 4px 0px #f06464;
+    justify-content: flex-start;
+
+}
+
+.logo-panel-home {
+    width:5%;
+}
+
+.logo-panel-app-icon {
+    width:90%;
+}
+
+.home-icon {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.app-icon {
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0px 0px 4px 0px #f06464;
+
+}

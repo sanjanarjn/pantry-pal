@@ -27,7 +27,7 @@
 
 .meal-card {
   display: flex; /* Aligns the icon and the editable div inline */
-  
+  width: 29%;
   align-items: center; /* Centers them vertically */
   border: 1px solid #fff; /* Border as shown in your picture */
   border-radius: 8px; /* Rounded corners as in your picture */
@@ -53,6 +53,15 @@
   flex-grow: 1; /* Allows the editable div to fill the space not taken by the icon */
   min-height: 100%; /* Gives some minimum height to the div */
   min-width: 30%;
+  font-size: 16px;
+  font-weight: bold;
+
+}
+
+.meal-card textarea::placeholder {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #ccc
 }
 
 .cart {

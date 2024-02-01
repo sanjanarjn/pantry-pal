@@ -39,7 +39,7 @@ const SelectGroceryList = ({
     listItems.push(
       <DeletableListItem
         key={list.id}
-        item={list}
+        listItem={list}
         actionImage={editImage}
         action={toggleAddGroceryItemModal}
       />
@@ -51,7 +51,7 @@ const SelectGroceryList = ({
     <div className="modal-overlay">
       <div className="add-to-grocery modal">
         <div className="header">
-          <div className="header-text">Your Grocery Lists</div>
+          <div className="header-text">Store Lists for Grocery</div>
           <div className="close-button" onClick={toggleGroceryListModal}>
             X
           </div>
@@ -62,7 +62,7 @@ const SelectGroceryList = ({
             <ul className="items">
               <EditableListItem
                 key={emptyList.id}
-                placeholder="Add new list"
+                placeholder="Add new store list"
                 item={emptyList}
                 inFocus={true}
                 onUpdate={addNewGroceryList}

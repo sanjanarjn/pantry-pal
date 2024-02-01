@@ -2,9 +2,8 @@ import { useState } from "react";
 import "./DeletableListItem.css";
 
 
-const DeletableListItem = ({item, actionImage, action}) => {
+const DeletableListItem = ({listItem, actionImage, action}) => {
   const [isHovering, setIsHovering] = useState(false);
-  const [listItem, setItem] = useState(item);
 
   return (
     <li
@@ -15,7 +14,7 @@ const DeletableListItem = ({item, actionImage, action}) => {
     >
       <span className="item-text">{listItem.itemName}</span>
       {isHovering && (
-        <img className="trash-icon" src={actionImage} onClick={() => action(listItem)}/>
+        <img className="action-icon" src={actionImage} onClick={() => action(listItem)} alt="Delete item"/>
       )}
     </li>
   );

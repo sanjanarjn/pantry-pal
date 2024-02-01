@@ -39,7 +39,7 @@
 .items {
   list-style-type: none;
   overflow: auto;
-  max-height: 400px;
+  max-height: 250px;
   padding: 0;
   margin: 0;
   width:98%;
@@ -181,6 +181,10 @@ input[type="checkbox"] {
 .grocery-list-header {
   display: flex;
   align-items: center;
+  font-weight: bolder;
+  color: #fb5f5f;
+  font-size:larger;
+  padding: 15px;
 }
 
 grocery-list-header h4 {

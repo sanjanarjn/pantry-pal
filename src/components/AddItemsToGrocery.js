@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import "./AddToGrocery.css";
 
-import plusImage from "../images/plus.png";
 import trashImage from "../images/bin.png";
 import EditableListItem from "./EditableListItem";
 import { DataContext } from "./DataContext";
@@ -14,11 +13,12 @@ const AddItemsToGroceryList = ({
   toggleAddToGroceryModal,
   goBacktoGroceryListModal
 }) => {
-  console.log(groceryListName);
+  console.log("List name is: ", groceryListName);
   const { grocery, addItemsToGroceryList } = useContext(DataContext);
 
   const getItemsInGroceryList = () => {
-    return grocery.groceryMap.get(groceryListName.itemName);
+    const itemsInList = grocery.groceryMap.get(groceryListName.itemName);
+    return itemsInList === undefined ? [] : itemsInList;
   };
 
   const [items, setItems] = useState(getItemsInGroceryList());
@@ -40,7 +40,7 @@ const AddItemsToGroceryList = ({
   const itemsInList = [];
   items.map((item) =>
     itemsInList.push(
-      <DeletableListItem key={item.id} item={item} actionImage={trashImage} action={deleteItem}/>
+      <DeletableListItem key={item.id} listItem={item} actionImage={trashImage} action={deleteItem}/>
     )
   );
 
@@ -49,7 +49,7 @@ const AddItemsToGroceryList = ({
     <div className="modal-overlay">
       <div className="add-to-grocery modal">
         <div className="header">
-        <img src={backButton} className="back-button" onClick={goBacktoGroceryListModal}/>
+        <img src={backButton} className="back-button" onClick={goBacktoGroceryListModal} alt="Back to lists"/>
 
           <div className="header-text">Add items to list - {groceryListName.itemName}</div>
           <div className="close-button" onClick={toggleAddToGroceryModal}>
@@ -59,12 +59,11 @@ const AddItemsToGroceryList = ({
         <div className="add-to-grocery modal-content">
         <section>
             <div className="grocery-list-header">
-              <h4>{groceryListName.itemName}</h4>
+              {groceryListName.itemName}
             </div>
             <ul className="items">{itemsInList}</ul>
           </section>
           <div className="sticky">
-            <img src={plusImage} className="plus-icon" />
             <ul className="items">
               <EditableListItem
                 key={emptyItem.id}

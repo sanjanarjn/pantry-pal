@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Meal({mealData, mealImage, onMealChange}) {
 
   const [updatedMeal, setMeal] = useState(mealData.mealName);
-  const placeholder = "Plan for your "+mealData.mealTime+"...";
+  const placeholder = "Plan your "+mealData.mealTime;
   const changeMeal = (event) => {
     console.log("Meal change")
     setMeal(event.target.value);

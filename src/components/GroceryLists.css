@@ -5,8 +5,9 @@
     border-radius: 8px;
     overflow: auto;
     text-align: left;
-    background-color:#f06464;
-    height: fit-content
+    background-color:#fff;
+    box-shadow: 0px 0px 4px 0px #f06464;
+    min-height: 350px;
   }
   
   .grocery-lists {
@@ -20,7 +21,7 @@
   .grocery-list-column {
     height: auto;
     flex: 1 1 30%;
-    width: 30%;
+    width: 29%;
     display: grid;
     grid-auto-rows: minmax(min-content, max-content); /* This makes row height dynamic based on content */
     gap: 3px; /* Space between rows */
@@ -30,18 +31,19 @@
     display: flex;
     background-color: #ffffff;
     margin: 8px;
-    padding: 3px;
-    border: 1px solid #ccc;
     align-items: center;
     border-radius: 8px;
-    overflow: auto;
+    min-height: 30px;
+    font-weight: bolder;
+    color: #fb5f5f;
+    font-size:larger;
   }
 
 
   .grocery-lists-header h2 {
-    width: 90%;
-    text-align: center;;
+    width: 96%;
   }
+
 
   .grocery-lists-header .back-button {
     height: 35px;
@@ -51,10 +53,9 @@
 
   .grocery-list {
     overflow:auto;
-    width: 90%;
     display: block;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 2px solid #f06464;
     border-radius: 8px;
     background-color: #ffffff;
     max-height: 100%;
@@ -81,6 +82,22 @@
   
   .grocery-item span {
     flex: 1;
+  }
+
+  .grocery-items {
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  .no-grocery-lists {
+    height: 200px;
+    width: 800px;
+    text-align: center;
+  }
+
+  .no-grocery-lists h2 {
+    color: #f06464;
+    padding-top: 10%;
   }
 
 
