@@ -1,5 +1,10 @@
 # Pantry Pal
 A simple react app designed to be a chrome extension, which helps you plan your weekly meals and grocery purchases. 
+<img src="screenshots/HomePage.jpg" alt="Home Page" width="400" height="250">
+<img src="screenshots/MealPlanning.jpg" alt="Meal Planning Page" width="400" height="250">
+<img src="screenshots/AddNewList.jpg" alt="Add new list popup" width="400" height="250">
+<img src="screenshots/AddItemToList.jpg" alt="Add new list popup" width="400" height="250">
+<img src="screenshots/GROCERYLISTS.jpg" alt="Add new list popup" width="400" height="250">
 
 
 ## Available Scripts
@@ -12,11 +17,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
