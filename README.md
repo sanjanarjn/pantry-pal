@@ -1,5 +1,7 @@
 # Pantry Pal
 A simple react app designed to be a chrome extension, which helps you plan your weekly meals and grocery purchases. 
+
+
 <img src="screenshots/HomePage.jpg" alt="Home Page" width="400" height="250">
 <img src="screenshots/MealPlanning.jpg" alt="Meal Planning Page" width="400" height="250">
 <img src="screenshots/AddNewList.jpg" alt="Add new list popup" width="400" height="250">
