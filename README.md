@@ -1,5 +1,5 @@
 # Pantry Pal
-A simple app designed to be a chrome extension, which helps you plan your weekly meals and grocery purchases. 
+A simple react app designed to be a chrome extension, which helps you plan your weekly meals and grocery purchases. 
 
 
 ## Available Scripts
