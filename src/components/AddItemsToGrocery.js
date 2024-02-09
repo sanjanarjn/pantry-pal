@@ -7,11 +7,12 @@ import { DataContext } from "./DataContext";
 import Item from "../data/Item";
 import DeletableListItem from "./DeletableListItem";
 import backButton from "../images/back.png";
+import Draggable from "react-draggable";
 
 const AddItemsToGroceryList = ({
   groceryListName,
   toggleAddToGroceryModal,
-  goBacktoGroceryListModal
+  goBacktoGroceryListModal,
 }) => {
   console.log("List name is: ", groceryListName);
   const { grocery, addItemsToGroceryList } = useContext(DataContext);
@@ -35,48 +36,63 @@ const AddItemsToGroceryList = ({
     const updatedItems = items.filter((item) => itemToDelete.id !== item.id);
     addItemsToGroceryList(groceryListName.itemName, updatedItems);
     setItems(updatedItems);
-  }
+  };
 
   const itemsInList = [];
   items.map((item) =>
     itemsInList.push(
-      <DeletableListItem key={item.id} listItem={item} actionImage={trashImage} action={deleteItem}/>
+      <DeletableListItem
+        key={item.id}
+        listItem={item}
+        actionImage={trashImage}
+        action={deleteItem}
+      />
     )
   );
 
   console.log(itemsInList);
   return (
-    <div className="modal-overlay">
-      <div className="add-to-grocery modal">
-        <div className="header">
-        <img src={backButton} className="back-button" onClick={goBacktoGroceryListModal} alt="Back to lists"/>
+    
+      <div className="modal-overlay">
+        <Draggable>
+        <div className="add-to-grocery modal">
+          <div className="header">
+            <img
+              src={backButton}
+              className="back-button"
+              onClick={goBacktoGroceryListModal}
+              alt="Back to lists"
+            />
 
-          <div className="header-text">Add items to list - {groceryListName.itemName}</div>
-          <div className="close-button" onClick={toggleAddToGroceryModal}>
-            X
-          </div>
-        </div>
-        <div className="add-to-grocery modal-content">
-        <section>
-            <div className="grocery-list-header">
-              {groceryListName.itemName}
+            <div className="header-text">
+              Add items to list - {groceryListName.itemName}
             </div>
-            <ul className="items">{itemsInList}</ul>
-          </section>
-          <div className="sticky">
-            <ul className="items">
-              <EditableListItem
-                key={emptyItem.id}
-                placeholder="Add new item"
-                item={emptyItem}
-                inFocus={true}
-                onUpdate={updateGroceryList}
-              />
-            </ul>
+            <div className="close-button" onClick={toggleAddToGroceryModal}>
+              X
+            </div>
+          </div>
+          <div className="add-to-grocery modal-content">
+            <section>
+              <div className="grocery-list-header">
+                {groceryListName.itemName}
+              </div>
+              <ul className="items">{itemsInList}</ul>
+            </section>
+            <div className="sticky">
+              <ul className="items">
+                <EditableListItem
+                  key={emptyItem.id}
+                  placeholder="Add new item"
+                  item={emptyItem}
+                  inFocus={true}
+                  onUpdate={updateGroceryList}
+                />
+              </ul>
+            </div>
           </div>
         </div>
+        </Draggable>
       </div>
-    </div>
   );
 };
 
